@@ -7,30 +7,7 @@
     <groupId>com.github.dadiyang</groupId>
     <artifactId>jave</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.6</version>
-    <parent>
-        <groupId>org.sonatype.oss</groupId>
-        <artifactId>oss-parent</artifactId>
-        <version>9</version>
-    </parent>
-    <licenses>
-        <license>
-            <name>GNU General Public License (GPL)</name>
-            <url>http://www.gnu.org/licenses/gpl.txt</url>
-        </license>
-    </licenses>
-    <scm>
-        <url>https://github.com/dadiyang/jave</url>
-        <connection>https://github.com/dadiyang/jave.git</connection>
-        <developerConnection>https://github.com/dadiyang/jave</developerConnection>
-    </scm>
-    <developers>
-        <developer>
-            <name>Xuyang Huang</name>
-            <email>dadiyang@aliyun.com</email>
-            <url>https://github.com/dadiyang/jave</url>
-        </developer>
-    </developers>
+    <version>1.0.6.1</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <slf4j.version>1.7.25</slf4j.version>
@@ -72,5 +49,20 @@
             </plugin>
         </plugins>
     </build>
+
+    <!-- 发布管理 -->
+    <distributionManagement>
+        <repository>
+            <!-- 和settings.xml的server的id一致 -->
+            <id>releases</id>
+            <name>Nexus Release Repository</name>
+            <url>http://maven.weimob.com/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>Nexus Snapshot Repository</name>
+            <url>http://maven.weimob.com/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 </project>

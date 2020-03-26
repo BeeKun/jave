@@ -12,6 +12,8 @@ public class AudioUtils {
 
     private static final String LIBMP_3_LAME = "libmp3lame";
 
+    private static final String WAV_CODEC = "pcm_s16le";
+
     /**
      * amr转mp3
      *
@@ -31,7 +33,7 @@ public class AudioUtils {
      * @param target 目标存放地址
      */
     public static void amrToMp3(File source, File target) {
-        convert(source, target, "mp3");
+        convert(source, target, LIBMP_3_LAME,"mp3");
     }
 
     /**s
@@ -41,16 +43,16 @@ public class AudioUtils {
      * @param target 目标存放地址
      */
     public static void amrToWav(File source, File target) {
-        convert(source, target, "wav");
+        convert(source, target, WAV_CODEC,"wav");
     }
 
-    public static void convert(File source, File target, String format) {
+    public static void convert(File source, File target, String codec,String format) {
         if (!source.exists()) {
             throw new IllegalArgumentException("source file does not exists: " + source.getAbsoluteFile());
         }
         AudioAttributes audio = new AudioAttributes();
         Encoder encoder = new IgnoreErrorEncoder();
-        audio.setCodec(LIBMP_3_LAME);
+        audio.setCodec(codec);
         EncodingAttributes attrs = new EncodingAttributes();
         attrs.setFormat(format);
         attrs.setAudioAttributes(audio);
