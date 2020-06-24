@@ -53,7 +53,7 @@ public class AudioUtils {
         AudioAttributes audio = new AudioAttributes();
         Encoder encoder = new IgnoreErrorEncoder();
         audio.setCodec(codec);
-        audio.setSamplingRate(24000);
+        audio.setSamplingRate(8000);
         EncodingAttributes attrs = new EncodingAttributes();
         attrs.setFormat(format);
         attrs.setAudioAttributes(audio);
